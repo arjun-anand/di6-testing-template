@@ -9,9 +9,13 @@ Use
 to install Mocha, then you're ready to go with 
 ```npm test```
 Remember to push your changes regularly with
+
 ```git add .```
+
 ```git commit -m "MESSAGE HERE"```
+
 ```git push```
+
 This will prevent you from losing work and allow you to record your progress.
 
 A repl exists within the program itself for you to try and experiment with classes. You can also use ```console.log()``` and it will print out above your tests.
@@ -66,27 +70,35 @@ A repl exists within the program itself for you to try and experiment with class
 
 ### Constructor and Properties for Hotel Booking Class (7 marks )
 The tests are written for this class and its properties; you need to uncomment them and make them pass. Simply producing a working class and constructor will get you the majority of points. 
+
 *Extension*: produce setters to accept strings in a string format
 ### Methods for Hotel Booking Class ( 7 marks ) 
 There are three methods that need to be implemented
 - pricePerNight(), which takes a date and returns a 1.5 modifier if the date is in summer and a 1.2 modifier if it’s a weekend (Friday, Saturday or Sunday).
 - numberOfDays(), which calculates the number of days between the last and the first day. You can use javascript’s datetime objects for this.
 - pricePerBooking() will require you to create a list of days, and run pricePerNight() on each
+
 *Extension*: what are other ways you could implement numberOfDays()?
 ## Flights
 ### Tests for Flight Constructor and Properties ( 7 marks )
 The classes are there, so you should be able to test them. With this exercise, you want to be more stringent than you would be in Behaviour Driven Development, since we are verifying things will not change in the future.
+
 *Extension*: Should you be able to set departureDate and flightCode to anything?
 ### Tests for Flight Methods (7 marks )
+
 ## Holiday
 ### Tests for Holiday Constructor and Properties ( 7 marks )
 Some test headings are already specified, but they can be filled out. It is acceptable to change the test names or strings, but you should maintain the same headings.
+
 *Extension*: should it be possible to overwrite holiday.flights or holiday.hotels?
 ### Constructor and Properties for Holiday Class (7 marks )
-This should follow the same format as the other classes. Flights and Hotels should be arrays to hold Flight and Hotel objects. 
+This should follow the same format as the other classes. Flights and Hotels should be arrays to hold Flight and Hotel objects.
+
 *Extension*: should it be possible to get a discount of more than 100%?
 ### Tests for Holiday Methods (7 marks )
-Even if you’re not sure exactly how to implement something, try to write the tests for it.
+Even if you’re not sure exactly how to implement something, try to write the tests for it. You should use the existing headings, but can change the volume of tests.
+
+*Extension* : can you be less prescriptive about the formatting of the getHotels() and getFlights()?
 ### Methods for Holiday Class ( 7 marks )
 There are more methods than the hotel booking class.
 - numberOfDays() should effectively be similar to the Hotel Booking class
@@ -94,8 +106,13 @@ There are more methods than the hotel booking class.
 - getFlights() should return a list of all Hotels, ideally well formatted
 - getTotalPrice() should get the price of all hotels, the price of all flights, and total cost including discount. You may want to create helper functions for this
 - returnItinerary() should return an itinerary showing all flights, all hotels and the total cost
-	*Extension*: produce a .showGaps() function to show any missing elements of the itinerary, such as days without hotels, or flights that depart from a place that is not yet reached.
+
+*Extension*: produce a .showGaps() function to show any missing elements of the itinerary, such as days without hotels, or flights that depart from a place that is not yet reached.
 ### Use of Github to record and save changes ( 7 marks ) 
 Try to make multiple commits to show the order in which you addressed the problem and the changes you made.
+
+*Extension*: Code on a different branch, and reintegrate it with master using a pull request.
 ### Comments on Code (7 marks ) 
 Write comments to show what you are doing. If you are stuck, commenting the codebase is a really good place to start, and will earn you points even if you do not complete the exercise.
+
+*Extension*: How would you develop the classes further? What methods would you add? Suggest in comments.
