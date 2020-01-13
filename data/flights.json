@@ -1,0 +1,3 @@
+{"flights":[{"flightCode":"AA1001","carrier":"Ada Airlines","departureCity":"London","destinationCity":"Milan","departureTime":"08:00","arrivalTime":"13:30","basePrice":150},
+{"flightCode":"AA1002","carrier":"Ada Airlines","departureCity":"Milan","destinationCity":"Cairo","departureTime":"17:00","arrivalTime":"21:00","basePrice":200},
+{"flightCode":"AA1003","carrier":"Ada Airlines","departureCity":"Cairo","destinationCity":"London","departureTime":"11:00","arrivalTime":"18:30","basePrice":180}]}
