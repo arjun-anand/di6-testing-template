@@ -13,7 +13,7 @@ describe('Hotel Booking',()=>{
             expect(new HotelBooking('Ada Hotel','London')).to.have.property('city')
         })
    })
-   describe('Holiday Properties',() => {
+   describe('Hotel Properties',() => {
         it.skip('should have an address property',()=>{
             let hotel = new HotelBooking('Ada Hotel','London')
             expect(hotel).to.have.property('address')
