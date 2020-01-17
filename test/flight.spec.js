@@ -5,9 +5,12 @@ const Flight = require('../lib/flight.js')
 describe('Flight',()=>{
     describe('Flight Constructor',()=> {
         it('should be a Flight constructor',()=> {
+
             var flight = new Flight(16/01/2020, 'AA1001')
             expect(flight.departureDate).to.equal(16/01/2020)
             expect(flight.flightCode).to.equal('AA1001')
+
+            expect(new Flight()).to.be.an.instanceOf(Flight)
                    
         })
         it('should allow the specification of a departure date in the constructor',()=>{
