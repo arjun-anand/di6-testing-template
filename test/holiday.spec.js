@@ -6,35 +6,47 @@ const Flight = require('../lib/flight.js')
 
 describe('Holiday',()=>{
     describe('Holiday Constructor',()=> {
-        it.skip('should be a constructor for the Holiday class',()=> {
+        it('should be a constructor for the Holiday class',()=> {
             expect(new Holiday()).to.be.an.instanceOf(Holiday)
         })
-        it.skip('should allow the specification of a Start Date in the constructor',()=>{
+        it('should allow the specification of a Start Date in the constructor',()=>{
             expect(new Holiday('20/10/2020')).to.have.property('startDate')
         })
-        it.skip('should allow the specification of an End Date in the constructor',()=>{
+        it('should allow the specification of an End Date in the constructor',()=>{
             expect(new Holiday('20/10/2020','22/10/2020')).to.have.property('endDate')
         })
    })
     describe('Holiday Properties',() => {
-        it.skip('should have a discount property',()=>{
+        it('should have a discount property',()=>{
+            let holiday = new Holiday('20/10/2020','22/10/2020')
+            expect(holiday.discount).to.equal(0.0)
         })
-        it.skip('should have an array for Flight objects',()=>{
+        it('should have an array for Flight objects',()=>{
+            let holiday = new Holiday('20/10/2020','22/10/2020')
+            expect(holiday.flights).to.deep.equal([])
         })
-        it.skip('should have an array for Hotel Booking objects',()=>{
+        it('should have an array for Hotel Booking objects',()=>{
+            let holiday = new Holiday('20/10/2020','22/10/2020')
+            expect(holiday.flights).to.deep.equal([])
         })
     })
     describe('Holiday Methods',()=> {
         describe('Number of Days',()=>{
-            it.skip('should calculate the number of Days of the trip',() => {
+            it('should calculate the number of Days of the trip',() => {
+                let holiday = new Holiday(new Date(2020,4,1), new Date(2020,04,02))
+                expect(holiday.numberOfDays()).to.equal(1)
             })
-            it.skip('should deal with days in different months',() => {
+            it('should deal with days in different months',() => {
+                let holiday = new Holiday(new Date(2020,4,1), new Date(2020,05,02))
+                expect(holiday.numberOfDays()).to.equal(32)
             })
-            it.skip('should deal with days in different years',() => {
+            it('should deal with days in different years',() => {
+                let holiday = new Holiday(new Date(2019,0,1), new Date(2020,0,1))
+                expect(holiday.numberOfDays()).to.equal(365)
             })
         })
         describe('Get Hotels',()=>{
-            it.skip('should return a nicely formatted list of hotels',() => {
+            it('should return a nicely formatted list of hotels',() => {
                 let holiday = new Holiday(new Date(2020,0,1),new Date(2020,0,2))
                 holiday.hotels.push(new HotelBooking('Ada Hotel', 'London'))
                 holiday.hotels.push(new HotelBooking('Le Hotel', 'Paris'))
@@ -44,12 +56,17 @@ describe('Holiday',()=>{
             })
         })
         describe('Get Flights',()=>{
-            it.skip('should return a nicely formatted list of flights',() => {
-                // fill in
+            it('should return a nicely formatted list of flights',() => {
+                let holiday = new Holiday(new Date(2020,0,1),new Date(2020,0,2))
+                holiday.flights.push(new Flight("17 Jan 2020", "AA1001"))
+                holiday.flights.push(new Flight("18 Jan 2020", "AA1002"))
+                holiday.flights.push(new Flight("19 Jan 2020", "AA1003"))
+                expect(holiday.getFlights()).to.equal(`-17 Jan 2020 - AA1001\n-18 Jan 2020 - AA1002\n-19 Jan 2020 - AA1003\n`)
+
             })
         })
         describe('Get Total Price',()=> {
-            it.skip('should allow addition of flight costs',()=>{
+            it('should allow addition of flight costs',()=>{
                 let holiday = new Holiday(new Date(2020,10,20),new Date(2020,20,22))
                 let flight1 = new Flight('20/10/20',"AA1001")
                 flight1.getDetails()
@@ -62,8 +79,10 @@ describe('Holiday',()=>{
                 holiday.flights.push(flight3)
                 expect(holiday.getFlightsTotal()).to.equal(530)
             })
-            it.skip('should allow addition of hotel costs',()=>{
-                // fill in
+            it('should allow addition of hotel costs',()=>{
+                let holiday = new Holiday()
+                
+
             })
             it.skip('should allow addition of flight AND hotel costs',()=>{
                 let holiday = new Holiday(new Date(2020,10,20),new Date(2020,20,22))
@@ -91,7 +110,7 @@ describe('Holiday',()=>{
                 hotel3.startDate = new Date(2020,10,26)
                 hotel3.endDate = new Date(2020,10,28)
                 holiday.hotels.push(hotel3)
-                expect(holiday.getHolidayTotal()).to.equal(1448)
+                expect(holiday.getHolidayTotal()).to.equal(1430)
             })
         })
     })
