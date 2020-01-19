@@ -119,6 +119,7 @@ describe('Hotel Booking',()=>{
                 hotel.endDate = new Date(2020,6,16)
                 hotel.pricePerNight()
                 hotel.numberOfDays()
+                             
                 expect(hotel.pricePerTrip()).to.equal(450)
             })
         })

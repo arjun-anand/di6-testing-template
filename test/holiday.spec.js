@@ -68,49 +68,99 @@ describe('Holiday',()=>{
         describe('Get Total Price',()=> {
             it('should allow addition of flight costs',()=>{
                 let holiday = new Holiday(new Date(2020,10,20),new Date(2020,20,22))
+                //Flight 1
                 let flight1 = new Flight('20/10/20',"AA1001")
                 flight1.getDetails()
-                holiday.flights.push(flight1)
+                flight1.getFlightPrice()
+                holiday.flights.push(flight1.getFlightPrice())
+
+                //Flight 2
                 let flight2 = new Flight('20/10/23',"AA1002")
                 flight2.getDetails()
-                holiday.flights.push(flight2)
+                holiday.flights.push(flight2.getFlightPrice())
+
+                //Flight 3
                 let flight3 = new Flight('20/10/26',"AA1003")
                 flight3.getDetails()
-                holiday.flights.push(flight3)
+                holiday.flights.push(flight3.getFlightPrice())
                 expect(holiday.getFlightsTotal()).to.equal(530)
             })
             it('should allow addition of hotel costs',()=>{
-                let holiday = new Holiday()
+                //Hotel 1
+                let holiday = new Holiday("","")
+                let hotel1 = new HotelBooking("Hilton", "Tokyo")
+                hotel1.startDate = new Date(2020,0,10)
+                hotel1.endDate = new Date(2020,0,12)
+                hotel1.basePrice = 450
+                hotel1.pricePerNight()
+                hotel1.numberOfDays()
+                //console.log(holiday.hotel1.pricePerTrip())
+                holiday.hotels.push(hotel1.pricePerTrip())
+                //Hotel 2
+                let hotel2 = new HotelBooking("Marriott", "New York")
+                hotel2.startDate = new Date(2020,0,25) //Testing out the weekend adjusted rates
+                hotel2.endDate = new Date(2020,0,27)
+                hotel2.basePrice = 650
+                hotel2.pricePerNight()
+                hotel2.numberOfDays()
+                holiday.hotels.push(hotel2.pricePerTrip())
+                //Hotel 3
+                let hotel3 = new HotelBooking("IHG", "Copenhagen")
+                hotel3.startDate = new Date(2020,0,25)
+                hotel3.endDate = new Date(2020,0,27)
+                hotel3.baseprice = 300
+                hotel3.pricePerNight()
+                hotel3.numberOfDays()
+                holiday.hotels.push(hotel3.pricePerTrip())
+                expect(holiday.addHotelCosts()).to.equal(2460)// 
                 
 
             })
-            it.skip('should allow addition of flight AND hotel costs',()=>{
+            it('should allow addition of flight AND hotel costs',()=>{
+                
                 let holiday = new Holiday(new Date(2020,10,20),new Date(2020,20,22))
+                              
+                // FLIGHT TESTS
+                //FLIGHT 1
                 let flight1 = new Flight('20/10/20',"AA1001")
                 flight1.getDetails()
-                holiday.flights.push(flight1)
+                holiday.flights.push(flight1.getFlightPrice())
+                //FLIGHT 2
                 let flight2 = new Flight('20/10/23',"AA1002")
                 flight2.getDetails()
-                holiday.flights.push(flight2)
+                holiday.flights.push(flight2.getFlightPrice())
+                //FLIGHT 3
                 let flight3 = new Flight('20/10/26',"AA1003")
                 flight3.getDetails()
-                holiday.flights.push(flight3)
+                holiday.flights.push(flight3.getFlightPrice())
+
+                //HOTEL TESTS
+                //HOTEL 1
                 let hotel1 = new HotelBooking('Ada Hotel', 'London')
                 hotel1.basePrice = 100
                 hotel1.startDate = new Date(2020,10,20)
                 hotel1.endDate = new Date(2020,10,23)
-                holiday.hotels.push(hotel1)
+                hotel1.pricePerNight()
+                hotel1.numberOfDays()
+                holiday.hotels.push(hotel1.pricePerTrip())
+                //HOTEL 2
                 let hotel2 = new HotelBooking('Il Hotel', 'Milan')
                 hotel2.basePrice = 120
                 hotel2.startDate = new Date(2020,10,23)
                 hotel2.endDate = new Date(2020,10,26)
-                holiday.hotels.push(hotel2)
+                hotel2.pricePerNight()
+                hotel2.numberOfDays()
+                holiday.hotels.push(hotel2.pricePerTrip())
+                //HOTEL 3
                 let hotel3 = new HotelBooking('PyramidScheme', 'Cairo')
                 hotel3.basePrice = 90
                 hotel3.startDate = new Date(2020,10,26)
                 hotel3.endDate = new Date(2020,10,28)
-                holiday.hotels.push(hotel3)
-                expect(holiday.getHolidayTotal()).to.equal(1430)
+                hotel3.pricePerNight()
+                hotel3.numberOfDays()
+                holiday.hotels.push(hotel3.pricePerTrip())
+                expect(holiday.getHolidayTotal()).to.equal(1370)
+                
             })
         })
     })
