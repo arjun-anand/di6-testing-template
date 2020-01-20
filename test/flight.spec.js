@@ -1,4 +1,4 @@
-const { expect } = require('chai')
+const { expect } = require('chai') //assertion library
 const Flight = require('../lib/flight.js')
 
 
