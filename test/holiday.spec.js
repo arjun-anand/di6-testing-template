@@ -61,7 +61,8 @@ describe('Holiday',()=>{
                 holiday.flights.push(new Flight("17 Jan 2020", "AA1001"))
                 holiday.flights.push(new Flight("18 Jan 2020", "AA1002"))
                 holiday.flights.push(new Flight("19 Jan 2020", "AA1003"))
-                expect(holiday.getFlights()).to.equal(`-17 Jan 2020 - AA1001\n-18 Jan 2020 - AA1002\n-19 Jan 2020 - AA1003\n`)
+                //console.log(holiday.getFlights())
+                expect(holiday.getFlights()).to.equal(`-17 Jan 2020 - AA1001\n-18 Jan 2020 - AA1002\n-19 Jan 2020 - AA1003\n`) //this is the formatting i want
 
             })
         })
@@ -160,8 +161,16 @@ describe('Holiday',()=>{
                 hotel3.numberOfDays()
                 holiday.hotels.push(hotel3.pricePerTrip())
                 expect(holiday.getHolidayTotal()).to.equal(1370)
+
+                ///I will return the itinerary here since all the fields have been entered anyways
+
+                expect(holiday.returnItinerary()).to.include()
+
                 
             })
+
+           
         })
+    
     })
 })
